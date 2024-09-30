@@ -1,0 +1,123 @@
+<p>helo</p>
+<!-- <p>{{user.name}}</p>
+<p>{{user.age}}</p>
+
+
+<!--DATA BINDING (PROPERTY BINDING) sử dụng [], hiển thị dữ liệu từ trong component ra views-->
+<!-- <input type="text" [value] ="user.name">
+ -->
+<!--EVENT BINDING sử dụng (), bind chức năng cho component-->
+
+<!-- <button type="button" (click)="push()">click</button>
+
+<br><br>
+
+{{title}}
+
+<br><br> -->
+
+<!--TWO WAY DATA BINDING-->
+<!-- <input type="text" [(ngModel)] = "title">
+
+Lệnh trên tương đồng với-->
+
+<!-- <input type="text" [ngModel] = "title" (ngModelChange)="title=$event">
+<button type="button" (click)="push2($event)">click</button> -->
+
+<!--ngIf-->
+<!-- <hello *ngIf = "user.age >=18, else elsee" [name]="user.name"></hello> -->
+<!--<hello [hidden]="user.age >=18" [name]="user.name"></hello>
+<ng-template #elsee>
+  <div>
+    TOO YOUNG
+  </div>
+</ng-template>
+<br><br>
+<button (click)="user.age = user.age -1">-</button>
+Age:{{user.age}}
+<button (click)="user.age = user.age +1">+</button> -->
+
+<!--Dùng atribute hidden cx tương tự ngIf nhưng khi vào check trong DOM thì nó k bị destroy mà vẫn tồn tại ở đó, nó chỉ bị hidden đi
+    Vậy nên tùy vào bussiness, tùy vào yều cầu mà chúng ta lựa chọn sử dụng gì cho hợp lý-->
+<!-- <hello [hidden] = "user.age >=18" [name]="user.name"></hello> -->
+
+<!-- odd: true nếu lẻ
+     even: true nếu chẵn
+     index: trả về value của lần lặp lại hiện tại
+     count: số lượng phần tử trong mảng
+     first: true nếu là index đầu
+     last: true nếu là index cuối
+     @Implicit: trả về giá trị của phần tử trong danh sách ở lần lặp hiện tại-->
+
+<ul>
+  <ng-container *ngIf = "user1.length > 0; else noU">
+  <li *ngFor="let u1 of user1; index as idx; count as total; first as isFirst; last as isLast; odd as isOdd; even as isEven">
+    <span>{{u1.id}} - {{u1.name}} - {{u1.phone}}</span>
+    <br>
+    <span>vị trí {{idx+1}} trong tổng {{total}}</span>
+    <br>
+    <span *ngIf="!isLast && !isFirst">đây là số ở vị trí {{idx+1}}</span>
+    <br>
+    <span *ngIf="isFirst">đây là số đầu</span>
+    <br>
+    <span *ngIf="isLast">đây là số cuối</span>
+    <br>
+    <span *ngIf="isEven">đây là số chẵn</span>
+    <br>
+    <span *ngIf="isOdd">đây là số lẻ</span>
+    <br><br>
+  </li>
+</ng-container>
+  <ng-template #noU> NO USER</ng-template>
+
+</ul>
+
+<button *ngFor="let tagname of tag; last as isLast; first as isFirst" [class.right]="!isLast">{{tagname}}</button>
+
+
+<!--cấu trúc khác, dùng ng-template thì không cần *-->
+
+<!-- <ul>
+  <ng-template ngFor [ngForOf]="user1" let-user let-idx="index">
+    <li>
+      <span>{{user.name}} - {{user.id}}</span>
+      <br><br>
+      <span>đây là vị trí {{idx+1}}</span>
+
+      <br><br>
+    </li>
+  </ng-template>
+</ul> -->
+
+<!--
+  [class.class_name] = boolean
+  [class] = "[array]"
+  [class] = "{object}" -> { "key:string" : boolean}
+
+-->
+<button (click)="isDanger=!isDanger">viền đỏ</button>
+<button (click)="isWarning=!isWarning">lòng vàng</button>
+
+<div class="box" [class.red_border] = "isDanger" [class.ylw_background] = "isWarning"></div>
+<div class="box" [class] = "['red_border' , 'ylw_background']"></div>
+<div class="box" [class] = "{'red_border':isDanger, 'ylw_background':isWarning}"></div>
+
+<!--
+  [style.styleName] = ""
+  [style.style-name] = ""
+  [stlye.styleName.unit] = ""
+  [style] = "{object}"
+  [style.css-variable] = ""
+-->
+
+<p [style.backgroundColor] = "'yellow'">WELLCOME</p>
+<p [style.background-color] = "'yellow'">WELLCOME</p>
+<p [style.background-color] = "'yellow'" [style.fontSize.px] = "50">WELLCOME</p>
+<!-- <p style="{color: yellow}">WELLCOME</p> -->
+<p >WELLCOME</p>
+
+<button (click)=" childW = childW + 1">push me</button>
+<progress-bar [childWidth]="childW"></progress-bar>
+
+<author_list> </author_list>
+
