@@ -1,5 +1,5 @@
 import { authors } from './../author';
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Author } from '../author';
 
 @Component({
@@ -9,5 +9,5 @@ import { Author } from '../author';
 })
 export class AuthorDetailComponent {
   @Input() authorss !: Author;
-  select = new EventEmitter<Author>();
+  @Output() select = new EventEmitter<Author>();
 }
