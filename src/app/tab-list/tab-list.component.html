@@ -1,0 +1,11 @@
+<div *ngFor=" let tab of tabList, index as idx " (click)="chose(idx)">
+    {{tab.title}}
+</div>
+
+<div>
+    <ng-container *ngFor=" let tab of tabList, index as idx ">
+        <div *ngIf="idx === curIndex">
+            <ng-container *ngtemplateOutlet="viewss"></ng-container>
+        </div>
+    </ng-container>
+</div>

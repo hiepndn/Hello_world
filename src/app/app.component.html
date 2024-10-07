@@ -3,7 +3,7 @@
 <p>{{user.age}}</p>
 
 
-<!--DATA BINDING (PROPERTY BINDING) sử dụng [], hiển thị dữ liệu từ trong component ra views-->
+DATA BINDING (PROPERTY BINDING) sử dụng [], hiển thị dữ liệu từ trong component ra views-->
 <!-- <input type="text" [value] ="user.name">
  -->
 <!--EVENT BINDING sử dụng (), bind chức năng cho component-->
@@ -120,4 +120,32 @@ Age:{{user.age}}
 <progress-bar [childWidth]="childW"></progress-bar>
 
 <author_list> </author_list>
+<br><br>
+<h3>{{title}}</h3>
+<input type="text" [(ngModel)] = "title">
 
+<br>
+<toggle #toggleTemp [(checkedd)] = "appCheck"></toggle>
+<br>
+<button (click)="toggleTemp.toggle()">push</button>
+<br><br>
+
+
+<ng-template #customTabButtons>
+  <div class="custom-class">
+    <button class="tab-button">
+login
+    </button>
+    <button class="tab-button">
+    signUp
+    </button>
+  </div>
+</ng-template>
+
+<tabs [headerTemplate]="customTabButtons"></tabs>
+
+<app-tab-list>
+  <app-tab-detail title="Tab 1">c</app-tab-detail>
+  <app-tab-detail title="Tab 2"><p>content tab 2</p></app-tab-detail>
+  <app-tab-detail title="Tab 3">content tab 3</app-tab-detail>
+</app-tab-list>

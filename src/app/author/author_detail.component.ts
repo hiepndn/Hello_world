@@ -4,10 +4,11 @@ import { Author } from '../author';
 
 @Component({
   selector: 'author_detail',
-  template: '<div> {{authorss.firstName}}  {{authorss.lastName}} <br> <button (click)="select.emit(authorss)">select</button></div>',
+  templateUrl: './author_detail.component.html',
   styleUrls: ['./author.component.scss']
 })
 export class AuthorDetailComponent {
   @Input() authorss !: Author;
   @Output() select = new EventEmitter<Author>();
+  @Output() del = new EventEmitter<Author>();
 }

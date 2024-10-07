@@ -6,7 +6,7 @@ import { Author } from '../author';
 
 @Component({
   selector: 'author_list',
-  template: '<author_detail *ngFor=" let author of authors" [authorss] = "author" (select)="onSelected($event)">  </author_detail><br> <div>current chose: {{curName.firstName}} {{curName.lastName}}</div>',
+  templateUrl: './author_list.component.html',
   styleUrls: ['./author.component.scss']
 })
 export class AuthorListComponent {
@@ -14,5 +14,11 @@ export class AuthorListComponent {
   curName = authors[0];
   onSelected(selectdAu: Author){
     this.curName = selectdAu;
+  }
+  Delete(author: Author){
+    this.authors = authors.filter(au=>au.id != author.id)
+    if(this.curName.id == author.id){
+      this.curName = this.authors[0];
+    }
   }
 }

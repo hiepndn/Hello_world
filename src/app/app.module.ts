@@ -7,7 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { HelloComponent } from './hello/hello.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { AuthorListComponent } from './author/author_list.component';
-import { AuthorDetailComponent } from './author/author_detail.component'
+import { AuthorDetailComponent } from './author/author_detail.component';
+import { ToggleComponent } from './toggle/toggle.component';
+import { TabComponent } from './tab/tab.component';
+import { TabListComponent } from './tab-list/tab-list.component';
+import { TabDetailComponent } from './tab-detail/tab-detail.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { AuthorDetailComponent } from './author/author_detail.component'
     HelloComponent,
     ProgressBarComponent,
     AuthorListComponent,
-    AuthorDetailComponent
+    AuthorDetailComponent,
+    ToggleComponent,
+    TabComponent,
+    TabListComponent,
+    TabDetailComponent
   ],
   imports: [
     BrowserModule,

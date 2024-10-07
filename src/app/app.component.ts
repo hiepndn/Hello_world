@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   childW = 50;
   title = 'Hello_world';
+  appCheck = true;
 
   user ={
     name : "hiep",
