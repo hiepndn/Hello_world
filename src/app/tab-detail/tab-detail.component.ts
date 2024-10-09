@@ -8,13 +8,10 @@ import { TabListComponent } from '../tab-list/tab-list.component';
 })
 
 export class TabDetailComponent  {
-  @Input() title !: string;
-  @ViewChild(TemplateRef) viewss !: TemplateRef<unknown>;
-  constructor(private tabList: TabListComponent) {}
+  @Input() title!: string;
+  @ViewChild(TemplateRef, { static: true }) template!: TemplateRef<any>;
+ constructor() {}
 
-  ngOnInit() {
-    this.tabList.addTabList(this);
-  }
 }
 
 

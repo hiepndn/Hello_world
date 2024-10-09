@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ContentChildren, EventEmitter, Input, OnInit, Output, QueryList } from '@angular/core';
 import { TabDetailComponent} from '../tab-detail/tab-detail.component';
 
 @Component({
@@ -8,14 +8,17 @@ import { TabDetailComponent} from '../tab-detail/tab-detail.component';
 })
 
 export class TabListComponent  {
-  tabList : TabDetailComponent [] = [];
-  curIndex: number = 0;
+  @ContentChildren(TabDetailComponent) tabList!: QueryList<TabDetailComponent>;
+  selectedTab: number = 0;
 
-  chose(index:number){
-    this.curIndex = index;
+  ngAfterContentInit() {
+    // Initialize with the first tab if available
+    if (this.tabList && this.tabList.length) {
+      this.selectedTab = 0;
+    }
   }
 
-  addTabList(tab: TabDetailComponent){
-    this.tabList.push(tab);
+  chooseTab(idx: number) {
+    this.selectedTab = idx;
   }
 }
