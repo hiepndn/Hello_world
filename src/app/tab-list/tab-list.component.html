@@ -1,11 +1,14 @@
-<div *ngFor=" let tab of tabList, index as idx " (click)="chose(idx)">
-    {{tab.title}}
-</div>
-
 <div>
-    <ng-container *ngFor=" let tab of tabList, index as idx ">
-        <div *ngIf="idx === curIndex">
-            <ng-container *ngtemplateOutlet="viewss"></ng-container>
-        </div>
-    </ng-container>
-</div>
+    <button 
+      *ngFor="let tab of tabList; index as idx"
+      (click)="chooseTab(idx)"
+      [class.active]="idx === selectedTab">
+      {{ tab.title }}
+    </button>
+  </div>
+  
+  <!-- Render selected tab content -->
+  <div>
+    <ng-container *ngTemplateOutlet="tabList.toArray()[selectedTab]?.template || null"></ng-container>
+  </div>
+  
